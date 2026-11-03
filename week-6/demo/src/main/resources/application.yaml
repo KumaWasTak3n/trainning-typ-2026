@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: demo
+  datasource:
+    url: jdbc:mysql://localhost:3306/quannet
+    username: root
+    password: Cuma69@z
+  jpa:
+    hibernate:
+      ddl-auto: update
+server:
+  port: 9999
