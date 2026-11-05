@@ -10,3 +10,6 @@ spring:
       ddl-auto: update
 server:
   port: 9999
+security:
+  jwt:
+    secret: "Haibeodeptrai_VIPVIPVIP_PassToiyeuptit_PLS_363738"

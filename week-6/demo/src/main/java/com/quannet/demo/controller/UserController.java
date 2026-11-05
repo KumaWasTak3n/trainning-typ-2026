@@ -1,5 +1,6 @@
 package com.quannet.demo.controller;
 
+import com.quannet.demo.config.JwtService;
 import com.quannet.demo.dto.LoginRequest;
 import com.quannet.demo.dto.TopUpRequest;
 import com.quannet.demo.dto.UserDto;
@@ -10,18 +11,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/users")
-
 public class UserController {
     @Autowired
     UserRepository userRepository;
     @Autowired
     UserService userService;
+    @Autowired
+    private AuthenticationManager authenticationManager;
+    @Autowired
+    private JwtService jwtService;
+
     @PostMapping("/add")
     public ResponseEntity<?> saveUser(@RequestBody UserDto userDto){
         userService.save(userDto.convertToModel());
